@@ -1,0 +1,29 @@
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\bin\Debug\net6.0\CRUD_DAL.deps.json
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\bin\Debug\net6.0\CRUD_DAL.runtimeconfig.json
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\bin\Debug\net6.0\CRUD_DAL.dll
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\bin\Debug\net6.0\CRUD_DAL.pdb
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.csproj.AssemblyReference.cache
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.AssemblyInfo.cs
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.dll
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\refint\CRUD_DAL.dll
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.pdb
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.genruntimeconfig.cache
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_DAL\obj\Debug\net6.0\ref\CRUD_DAL.dll
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\bin\Debug\net6.0\CRUD_DAL.deps.json
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\bin\Debug\net6.0\CRUD_DAL.runtimeconfig.json
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\bin\Debug\net6.0\CRUD_DAL.dll
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\bin\Debug\net6.0\CRUD_DAL.pdb
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.csproj.AssemblyReference.cache
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.AssemblyInfoInputs.cache
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.AssemblyInfo.cs
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.sourcelink.json
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.dll
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\refint\CRUD_DAL.dll
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.pdb
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\CRUD_DAL.genruntimeconfig.cache
+C:\Users\user\Downloads\Test Repo\Gaganoxdh\Test-Repo\CRUD_DAL\obj\Debug\net6.0\ref\CRUD_DAL.dll

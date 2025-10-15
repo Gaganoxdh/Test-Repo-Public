@@ -1,0 +1,17 @@
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\bin\Debug\net6.0\CRUD_BAL.deps.json
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\bin\Debug\net6.0\CRUD_BAL.runtimeconfig.json
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\bin\Debug\net6.0\CRUD_BAL.dll
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\bin\Debug\net6.0\CRUD_BAL.pdb
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\bin\Debug\net6.0\CRUD_DAL.dll
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\bin\Debug\net6.0\CRUD_DAL.pdb
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\CRUD_BAL.csproj.AssemblyReference.cache
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\CRUD_BAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\CRUD_BAL.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\CRUD_BAL.AssemblyInfo.cs
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\CRUD_BAL.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\CRUD_BAL.csproj.CopyComplete
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\CRUD_BAL.dll
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\refint\CRUD_BAL.dll
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\CRUD_BAL.pdb
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\CRUD_BAL.genruntimeconfig.cache
+C:\Users\user\Documents\Api's Training 26-05-22\Dot Net Core\CoreCRUDAPI\CRUD_BAL\obj\Debug\net6.0\ref\CRUD_BAL.dll
