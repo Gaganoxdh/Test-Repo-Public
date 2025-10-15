@@ -1,0 +1,26 @@
+
+name: Email Notification
+
+on:
+  workflow_run:
+    workflows: ["CodeQL Analysis"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send email
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 587
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: "CodeQL Scan Failed"
+        body: "CodeQL found issues in the latest commit. Please check the Security tab."
+        to: your.email@example.com
+        from: "Code Scanner"
