@@ -1,20 +1,46 @@
-
-name: Code Scanning Alert Notification on Push
+name: CodeQL Scan and Email Notification
 
 on:
   push:
     branches: [ main ]
 
 jobs:
+  codeql:
+    name: Run CodeQL Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: javascript  # Change to your repo's language
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+
   notify:
+    name: Notify if vulnerabilities found
+    needs: codeql
     runs-on: ubuntu-latest
     steps:
+    - name: Get commit author email
+      run: |
+        echo "COMMIT_EMAIL=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_ENV
+
     - name: Check for code scanning alerts
       id: check_alerts
       run: |
         owner="${{ github.repository_owner }}"
         repo="${{ github.event.repository.name }}"
-        alerts=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"           https://api.github.com/repos/$owner/$repo/code-scanning/alerts)
+        alerts=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/$owner/$repo/code-scanning/alerts)
         echo "ALERT_COUNT=$(echo $alerts | jq length)" >> $GITHUB_ENV
 
     - name: Send email if alerts exist
@@ -25,7 +51,9 @@ jobs:
         server_port: 587
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: "Code Scanning Alerts Detected"
-        body: "There are ${{ env.ALERT_COUNT }} code scanning alerts in the repository. Please check the Security tab."
-        to: your.email@example.com
+        subject: "CodeQL Vulnerabilities Detected"
+        body: |
+          CodeQL has detected ${{ env.ALERT_COUNT }} vulnerabilities in your recent commit.
+          Please review and fix them in the Security tab of the repository.
+        to: ${{ env.COMMIT_EMAIL }}
         from: "Code Scanner"
