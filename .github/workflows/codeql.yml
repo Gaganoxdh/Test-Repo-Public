@@ -11,7 +11,7 @@ on:
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
-    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     permissions:
       security-events: write
       packages: read
@@ -22,10 +22,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - language: javascript-typescript
-            build-mode: autobuild
           - language: csharp
-            build-mode: manual  # C# projects often need manual build steps
+            build-mode: manual
 
     steps:
     - name: Checkout repository
@@ -35,7 +33,7 @@ jobs:
       if: matrix.language == 'csharp'
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0.x'  # Adjust to your project's version
+        dotnet-version: '6.0.x'  # Update if you're using .NET 7 or 8
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
@@ -43,12 +41,12 @@ jobs:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
 
-    - name: Manual build step (for C#)
+    - name: Build C# solution
       if: matrix.build-mode == 'manual'
       shell: bash
       run: |
-        dotnet build YourSolution.sln  # Replace with your actual solution file
-
+        dotnet restore CoreCRUDAPI.sln
+        dotnet build CoreCRUDAPI.sln --configuration Release
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
