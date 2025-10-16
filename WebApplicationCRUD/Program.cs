@@ -1,44 +1,51 @@
-using CRUD_BAL.Service;
-using CRUD_DAL.Data;
-using CRUD_DAL.Interface;
-using CRUD_DAL.Model;
-using CRUD_DAL.Repository;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Data.SqlClient;
+using Microsoft.AspNetCore.Mvc;
 
-var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("DevConnection");
-builder.Services.AddDbContextPool<ApplicationDbContext>(option =>
-option.UseSqlServer(connectionString)
-);
-builder.Services.AddTransient<IRepository<Person>, Repository>();
-builder.Services.AddTransient<Service, Service>();
-
-//builder.Services.AddScoped<IRepository<Person>, Repository>();
-
-
-//builder.Services.AddControllers();
-//builder.Services.AddHttpClient();
-//builder.Services.AddScoped<Service, Service>();
-//builder.Services.AddControllers();
-// Add services to the container.
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+namespace VulnerableApp.Controllers
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    [ApiController]
+    [Route("[controller]")]
+    public class VulnerableController : ControllerBase
+    {
+        [HttpGet("user")]
+        public IActionResult GetUser(string username)
+        {
+            // ❌ Vulnerability 1: SQL Injection
+            string connectionString = "Server=localhost;Database=TestDB;Trusted_Connection=True;";
+            string query = "SELECT * FROM Users WHERE Username = '" + username + "'";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return Ok("User found.");
+                }
+                else
+                {
+                    return NotFound("User not found.");
+                }
+            }
+        }
+
+        [HttpPost("log")]
+        public IActionResult LogMessage(string message)
+        {
+            // ❌ Vulnerability 2: Unvalidated Input in Logs
+            Console.WriteLine("Log: " + message); // Could be exploited for log injection
+            return Ok("Message logged.");
+        }
+
+        [HttpGet("config")]
+        public IActionResult GetConfig()
+        {
+            // ❌ Vulnerability 3: Hardcoded secret
+            string apiKey = "12345-SECRET-KEY";
+            return Ok("API Key: " + apiKey);
+        }
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
