@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Data.SqlClient;
-using Microsoft.AspNetCore.Mvc;
 
-namespace VulnerableApp.Controllers
+namespace VulnerableApp
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class VulnerableController : ControllerBase
+    class VulnerableExample
     {
-        [HttpGet("user")]
-        public IActionResult GetUser(string username)
+        static void Main(string[] args)
         {
+            Console.WriteLine("Enter username:");
+            string username = Console.ReadLine();
+
             // ❌ Vulnerability 1: SQL Injection
             string connectionString = "Server=localhost;Database=TestDB;Trusted_Connection=True;";
             string query = "SELECT * FROM Users WHERE Username = '" + username + "'";
@@ -23,29 +22,17 @@ namespace VulnerableApp.Controllers
 
                 if (reader.HasRows)
                 {
-                    return Ok("User found.");
+                    Console.WriteLine("User found.");
                 }
                 else
                 {
-                    return NotFound("User not found.");
+                    Console.WriteLine("User not found.");
                 }
             }
-        }
 
-        [HttpPost("log")]
-        public IActionResult LogMessage(string message)
-        {
-            // ❌ Vulnerability 2: Unvalidated Input in Logs
-            Console.WriteLine("Log: " + message); // Could be exploited for log injection
-            return Ok("Message logged.");
-        }
-
-        [HttpGet("config")]
-        public IActionResult GetConfig()
-        {
-            // ❌ Vulnerability 3: Hardcoded secret
-            string apiKey = "12345-SECRET-KEY";
-            return Ok("API Key: " + apiKey);
+            // ❌ Vulnerability 2: Hardcoded secret
+            string apiKey = "SECRET-12345-KEY";
+            Console.WriteLine("Using API Key: " + apiKey);
         }
     }
 }
