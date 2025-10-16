@@ -33,7 +33,7 @@ jobs:
       if: matrix.language == 'csharp'
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0.x'  # Update if you're using .NET 7 or 8
+        dotnet-version: '6.0.x'
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
@@ -47,7 +47,57 @@ jobs:
       run: |
         dotnet restore CoreCRUDAPI.sln
         dotnet build CoreCRUDAPI.sln --configuration Release
+
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{ matrix.language }}"
+
+  notify:
+    name: Notify if vulnerabilities found
+    needs: analyze
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Get commit author email
+      run: |
+        echo "COMMIT_EMAIL=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_ENV
+
+    - name: Check for code scanning alerts
+      id: check_alerts
+      run: |
+        owner="${{ github.repository_owner }}"
+        repo="${{ github.event.repository.name }}"
+        alerts=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/$owner/$repo/code-scanning/alerts)
+        echo "ALERT_COUNT=$(echo $alerts | jq length)" >> $GITHUB_ENV
+
+    - name: Send email if alerts exist
+      if: env.ALERT_COUNT != '0'
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.office365.com
+        server_port: 587
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: "CodeQL Vulnerabilities Detected"
+        body: |
+          CodeQL has detected ${{ env.ALERT_COUNT }} vulnerabilities in your recent commit.
+          Please review and fix them in the Security tab of the repository.
+        to: ${{ env.COMMIT_EMAIL }}
+        from: "Code Scanner"
+
+    - name: Send email if no alerts
+      if: env.ALERT_COUNT == '0'
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.office365.com
+        server_port: 587
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: "CodeQL Scan Passed"
+        body: "CodeQL scan completed successfully. No vulnerabilities were found."
+        to: ${{ env.COMMIT_EMAIL }}
+        from: "Code Scanner"
